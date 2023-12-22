@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>Reservas Fuentealba</title>
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-1 text-center">LISTADO DE RESERVAS</div>
+    {% if inscrito %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Fecha</th>
+                <th>Institucion</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th>Observación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in inscrito %}
+            <tr>
+                <td>{{res.id}}</td>
+                <td>{{res.nombre}}</td>
+                <td>{{res.telefono}}</td>
+                <td>{{res.fecha_inscripcion}}</td>
+                <td>{{res.id_institucion}}</td>
+                <td>{{res.hora_inscripcion}}</td>
+                <td>{{res.estado}}</td>
+                <td>{{res.observacion}}</td>      
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <div class="alert alert-danger text-center">
+            No se encuentran reservas en el sistema
+        </div>
+    {% endif %}
+
+    <a href="/" class="btn btn-danger">VOLVER</a>
+    
+</body>
+</html>
